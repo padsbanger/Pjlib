@@ -34,7 +34,7 @@ class Active_ctrl extends CI_Controller {
 			$this->load->view('ac_book_add_view.php');
 		} else {
 			
-			  $tytul = trim($this->input->set_value(post('tytul')));
+			  $tytul = trim($this->input->post('tytul'));
 		        $imie_autor = trim($this->input->post('imie_autor'));
 				$nazwisko_autor = trim($this->input->post('nazwisko_autor'));
 		        $wydawnictwo = trim($this->input->post('wydawnictwo'));
@@ -51,7 +51,7 @@ class Active_ctrl extends CI_Controller {
 		                );
 		        $this->Book_model->insert($data);
 		        $this->session->set_flashdata("pesan","Książka została dodana poprawnie.");
-		        redirect('active_ctrl');
+		        redirect('');
 			
 		}
 	
@@ -84,8 +84,8 @@ class Active_ctrl extends CI_Controller {
 				  "kategoria" => $kategoria
                  );
         $this->Book_model->update($data,$id);
-        $this->session->set_flashdata("pesan","Książka została zedytkowana poprawnie.");
-        redirect('active_ctrl');
+        $this->session->set_flashdata("pesan","Książka została zedytowana poprawnie.");
+        redirect('');
     }
 
     function delete() {
@@ -106,7 +106,7 @@ class Active_ctrl extends CI_Controller {
 
         $this->Book_model->delete($id);
         $this->session->set_flashdata("pesan","Książka została usunięta.");
-        redirect('active_ctrl');
+        redirect('');
     }
 
 
