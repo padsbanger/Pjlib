@@ -1,10 +1,8 @@
-<!-- SIMPLE ACTIVE RECORD APPLICATION     -->
-<!-- http://www.palgenep-center.com       -->
-<!-- views : book_add_view.php            -->
 
 <html>
     <head>
-        <title>SIMPLE ACTIVE RECORD APPLICATION - Add - Palgenep Center</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <title>Dodawanie książki</title>
     <style>
         td {
             border:1px #0134c5 solid;
@@ -23,22 +21,33 @@
     </head>
 
     <body>
-        <h1>FORM INPUT BOOK</h1>
+        <h1>Formularz dodawania ksiażki</h1>
         <form name="inputBook" id="inputbook" action="save_data" method="post">
             <p>
-                <label>Book Name</label>
-                <input type="text" name="book_name" size="100"/>
+                <label>Tytuł książki</label>
+                <input type="text" name="tytul" size="80"/>
             </p>
             <p>
-                <label>Author</label>
-                <input type="text" name="author" size="30" />
+                <label>Imie autora</label>
+                <input type="text" name="imie_autor" size="20" />
+				<label>Nazwisko autora</label>
+                <input type="text" name="nazwisko_autor" size="20" />
             </p>
             <p>
-                <label>Publisher</label>
-                <input type="text" name="publisher" size="30" />
+                <label>Wydawnictwo</label>
+                <input type="text" name="wydawnictwo" size="30" />
             </p>
+			<p>
+                <label>Rok wydania</label>
+                <input type="text" name="rok_wydania" size="30" />
+            </p>
+			<p>
+                <label>kategoria</label>
+                <input type="text" name="kategoria" size="30" />
+            </p>
+						
             <p>
-                <input type="submit" name="submit" value="SAVE" />
+                <input type="submit" name="submit" value="Dodaj książkę" />
             </p>
         </form>
         
