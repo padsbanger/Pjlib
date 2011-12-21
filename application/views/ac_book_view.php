@@ -9,20 +9,16 @@
     </head>
     
     <body>
+	<div id="fadein">
 	<script>
 	$(document).ready(function(){	
-		$('#msg').fadeIn(500);
+		$('#msg').delay(500).fadeIn(800);
 	});
-	
 	
 
+
 	
-	$(function () {
-	  if ($.cookie("loaded") != "true") {
-	      $('body.home').hide().fadeIn('1500');
-	      $.cookie("loaded", "true",{ expires: 7 });
-	  }
-	});
+
 		
 	
 	</script>
@@ -42,7 +38,7 @@
         <h1><?php echo anchor('',"STRONA GŁÓWNA") ?> </h1>
         <p><?php  if($this->session->flashdata('pesan')) {
 	
-   echo "<div id ='msg'><img src='inc/img/msg.png' width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''> [ X ]</a></p></div>";} else {
+   echo "<div id ='msg'><img src='inc/img/msg.png' width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''id='koniec'> [ X ]</a></p></div>";} else {
 	echo ''; 
 }?></p>
         <table border="0" cellpadding="0" cellspacing="2">
@@ -85,6 +81,17 @@
 				</div>			
 			
 		</div>
-	
+		</div>
+		<script>
+		$(function () {
+		  if ($.cookie("loaded") != "true") {
+		      $('#fadein').hide().fadeIn('3500');
+		      $.cookie("loaded", "true",{ expires: new Date() });
+		  } else {
+			var div = document.getElementById('fadein');
+			div.style.display='block';
+		}
+		});
+		</script>
     </body>
 </html>

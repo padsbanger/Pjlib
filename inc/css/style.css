@@ -74,7 +74,9 @@ padding:2px;
 	clear:right;
 }
 
-
+#fadein{
+	display:none;
+}
 
  td {
         border:1px #ccc solid;
@@ -96,14 +98,10 @@ padding:2px;
 			color:#B80000;
 	}
 
-	a:link {
-		color:#B80000;
-		}
+	
 	a:hover {
 		
 		color:#0289ce;
 		}
-	a:visited {
-		color:#B80000 ;
-	}
+		
 	
