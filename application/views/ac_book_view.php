@@ -20,7 +20,11 @@
 	   
 		<div id="content">
         <h1><?php echo anchor('',"STRONA GŁÓWNA") ?> </h1>
-        <p><?php echo $this->session->flashdata('pesan');?></p>
+        <p><?php  if($this->session->flashdata('pesan')) {
+	
+   echo "<div id ='msg'><img src='inc/img/msg.png' width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''> [ X ]</a></p></div>";} else {
+	echo ''; 
+}?></p>
         <table border="0" cellpadding="0" cellspacing="2">
             <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/history',"<strong>Archiwum</strong>"); ?></tr>
             <tr>

@@ -33,6 +33,7 @@ body {
 }
 
 
+
 #content {
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -54,14 +55,31 @@ body {
 	 
 }
 
+#msg {
+	
+	width:350px;
+	border: 1px solid #ccc;
+	padding:0px;
 
+}
+
+#msg img {
+float:left;
+padding:2px;
+}
+
+#msg p {
+	clear:right;
+}
  td {
         border:1px #ccc solid;
         padding:5px;
         font-size: 12px;
     }
-    td .noneborder {
-        border:none;
+    .noneborder {
+		margin:2px;
+		padding-bottom:10px;
+       	padding-top:10px;
     }
     
 .heading {
