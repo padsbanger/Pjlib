@@ -1,23 +1,9 @@
 
 <html>
     <head>
+		<title>Dodawanie książki</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-        <title>Dodawanie książki</title>
-    <style>
-        td {
-            border:1px #0134c5 solid;
-            padding:5px;
-            font-size: 12px;
-        }
-        body {
-            font-family: tahoma;
-            font-size: 12px;
-        }
-        label {
-            width:100px;
-            display: inline-block;
-        }
-    </style>
+		 <link rel="stylesheet" type="text/css" href="inc/css/style.css" />
     </head>
 
     <body>

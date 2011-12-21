@@ -1,0 +1,17 @@
+body {
+	font-family: Helvetica, sans-serif;
+	font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+ td {
+        border:1px #0134c5 solid;
+        padding:5px;
+        font-size: 12px;
+    }
+    td .noneborder {
+        border:none;
+    }
+    body {
+        font-family: tahoma;
+        font-size: 12px;
+    }

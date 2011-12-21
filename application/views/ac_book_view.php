@@ -1,21 +1,10 @@
 <html>
     <head>
+		 <title>Strona główna</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-        <title>Strona główna</title>
-
+		<link rel="stylesheet" type="text/css" href="inc/css/style.css" />
     <style>
-        td {
-            border:1px #0134c5 solid;
-            padding:5px;
-            font-size: 12px;
-        }
-        td .noneborder {
-            border:none;
-        }
-        body {
-            font-family: tahoma;
-            font-size: 12px;
-        }
+       
     </style>
     </head>
     
