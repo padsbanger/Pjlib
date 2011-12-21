@@ -32,14 +32,20 @@ class Active_ctrl extends CI_Controller {
     }
 
     function save_data() {
-        $book_name = trim($this->input->post('book_name'));
-        $author = trim($this->input->post('author'));
-        $publisher = trim($this->input->post('publisher'));
+        $tytul = trim($this->input->post('tytul'));
+        $imie_autor = trim($this->input->post('imie_autor'));
+		$nazwisko_autor = trim($this->input->post('nazwisko_autor'));
+        $wydawnictwo = trim($this->input->post('wydawnictwo'));
+		$rok_wydania = trim($this->input->post('rok_wydania'));
+		$kategoria = trim($this->input->post('kategoria'));
 
         $data = array(
-                  "book_name" => $book_name,
-                  "author" => $author,
-                  "publisher" => $publisher,
+                  "tytul" => $tytul,
+                  "imie_autor" => $imie_autor,
+                  "nazwisko_autor" => $nazwisko_autor,
+				  "wydawnictwo" => $wydawnictwo,
+				  "rok_wydania" => $rok_wydania,
+				  "kategoria" => $kategoria
                 );
         $this->Book_model->insert($data);
         $this->session->set_flashdata("pesan","INSERT SUCCES");
@@ -55,14 +61,20 @@ class Active_ctrl extends CI_Controller {
 
     function update_data() {
         $id = trim($this->input->post('id'));
-        $book_name = trim($this->input->post('book_name'));
-        $author = trim($this->input->post('author'));
-        $publisher = trim($this->input->post('publisher'));
+        $tytul = trim($this->input->post('tytul'));
+	    $imie_autor = trim($this->input->post('imie_autor'));
+		$nazwisko_autor = trim($this->input->post('nazwisko_autor'));
+	    $wydawnictwo = trim($this->input->post('wydawnictwo'));
+	    $rok_wydania = trim($this->input->post('rok_wydania'));
+		$kategoria = trim($this->input->post('kategoria'));
 
         $data = array(
-                  "book_name" => $book_name,
-                  "author" => $author,
-                  "publisher" => $publisher,
+                  "tytul" => $tytul,
+                  "imie_autor" => $imie_autor,
+                  "nazwisko_autor" => $nazwisko_autor,
+				  "wydawnictwo" => $wydawnictwo,
+				  "rok_wydania" => $rok_wydania,
+				  "kategoria" => $kategoria
                  );
         $this->Book_model->update($data,$id);
         $this->session->set_flashdata("pesan","UPDATE SUCCES");
@@ -78,9 +90,12 @@ class Active_ctrl extends CI_Controller {
 
     function del() {
         $id = trim($this->input->post('id'));
-        $book_name = trim($this->input->post('book_name'));
-        $author = trim($this->input->post('author'));
-        $publisher = trim($this->input->post('publisher'));
+        $tytul = trim($this->input->post('tytul'));
+	    $imie_autor = trim($this->input->post('imie_autor'));
+		$nazwisko_autor = trim($this->input->post('nazwisko_autor'));
+	    $wydawnictwo = trim($this->input->post('wydawnictwo'));
+	    $rok_wydania = trim($this->input->post('rok_wydania'));
+		$kategoria = trim($this->input->post('kategoria'));
 
         $this->Book_model->delete($id);
         $this->session->set_flashdata("pesan","DELETE SUCCES");
