@@ -2,11 +2,31 @@
     <head>
 		 <title>Strona główna</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="inc/js/jquery.cookie.js" type="text/javascript"></script>
 		<link rel="stylesheet" type="text/css" href="inc/css/style.css" />
     
     </head>
     
     <body>
+	<script>
+	$(document).ready(function(){	
+		$('#msg').fadeIn(500);
+	});
+	
+	
+
+	
+	$(function () {
+	  if ($.cookie("loaded") != "true") {
+	      $('body.home').hide().fadeIn('1500');
+	      $.cookie("loaded", "true",{ expires: 7 });
+	  }
+	});
+		
+	
+	</script>
+	
 	
 		<div id="header">
 			
@@ -26,7 +46,7 @@
 	echo ''; 
 }?></p>
         <table border="0" cellpadding="0" cellspacing="2">
-            <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/history',"<strong>Archiwum</strong>"); ?></tr>
+            <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/history',"<strong>| Archiwum</strong>"); ?></tr>
             <tr>
                 <td class="heading"><strong>NO</strong></td>
                 <td class="heading"><strong>Tytuł książki</strong></td>
@@ -56,7 +76,15 @@
             </tr>
             <?php $i++; } ?>
         </table>
+
+
 			</div>
+				
+				<div id="footer">
+
+				</div>			
+			
 		</div>
+	
     </body>
 </html>
