@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('active_record_book_model');
+$autoload['model'] = array('book_model');
 
 
 /* End of file autoload.php */
