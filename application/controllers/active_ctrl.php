@@ -6,10 +6,7 @@ class Active_ctrl extends CI_Controller {
         parent::__construct();
  
         $this->load->model('Book_model');
-		$this->load->model('Book_model');
-        $this->load->helper('url');
-        $this->load->helper('form');
-        $this->load->library('session');
+       
 
     }
 
@@ -24,24 +21,42 @@ class Active_ctrl extends CI_Controller {
     }
 
     function save_data() {
-        $tytul = trim($this->input->post('tytul'));
-        $imie_autor = trim($this->input->post('imie_autor'));
-		$nazwisko_autor = trim($this->input->post('nazwisko_autor'));
-        $wydawnictwo = trim($this->input->post('wydawnictwo'));
-		$rok_wydania = trim($this->input->post('rok_wydania'));
-		$kategoria = trim($this->input->post('kategoria'));
+	
+		$this->form_validation->set_rules('tytul','Tytuł', 'trim|required');
+		$this->form_validation->set_rules('imie_autor','Imie autora', 'trim|required');
+		$this->form_validation->set_rules('nazwisko_autor','Nazwisko autora', 'trim|required');
+		$this->form_validation->set_rules('wydawnictwo','Wydawnictwo', 'trim|required');
+		$this->form_validation->set_rules('rok_wydania','Rok wydania', 'trim|required|integer');
+		$this->form_validation->set_rules('kategoria','Kategorię', 'trim|required');
+	
+		if($this->form_validation->run() == FALSE) {
+			
+			$this->load->view('ac_book_add_view.php');
+		} else {
+			
+			  $tytul = trim($this->input->set_value(post('tytul')));
+		        $imie_autor = trim($this->input->post('imie_autor'));
+				$nazwisko_autor = trim($this->input->post('nazwisko_autor'));
+		        $wydawnictwo = trim($this->input->post('wydawnictwo'));
+				$rok_wydania = trim($this->input->post('rok_wydania'));
+				$kategoria = trim($this->input->post('kategoria'));
 
-        $data = array(
-                  "tytul" => $tytul,
-                  "imie_autor" => $imie_autor,
-                  "nazwisko_autor" => $nazwisko_autor,
-				  "wydawnictwo" => $wydawnictwo,
-				  "rok_wydania" => $rok_wydania,
-				  "kategoria" => $kategoria
-                );
-        $this->Book_model->insert($data);
-        $this->session->set_flashdata("pesan","Książka została dodana poprawnie.");
-        redirect('active_ctrl');
+		        $data = array(
+		                  "tytul" => $tytul,
+		                  "imie_autor" => $imie_autor,
+		                  "nazwisko_autor" => $nazwisko_autor,
+						  "wydawnictwo" => $wydawnictwo,
+						  "rok_wydania" => $rok_wydania,
+						  "kategoria" => $kategoria
+		                );
+		        $this->Book_model->insert($data);
+		        $this->session->set_flashdata("pesan","Książka została dodana poprawnie.");
+		        redirect('active_ctrl');
+			
+		}
+	
+	
+      
     }
 
     function edit() {
