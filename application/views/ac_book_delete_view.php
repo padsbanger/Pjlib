@@ -20,7 +20,8 @@
     </head>
 
     <body>
-        <h1>Czy napewno chcesz usunąć tą książkę ?</h1>
+        <h1>Usuwanie książki</h1>
+		<p>Książka zostanie usunięta z bazy i przeniesiona do archiwum</p>
         <form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/active_ctrl/del" method="post">
             <p>
                 <label>Tytuł książki</label>
@@ -49,7 +50,9 @@
 	       </p>
 			
             <p>
+				<h3>Czy jesteś pewnien że chcesz usunąć tą książkę ?<h3>
                 <input type="submit" name="submit" value="Usuń książkę" />
+				<input type="button" value="Nie usuwaj" onClick="history.go(-1);return true;"></form> 
             </p>
         </form>
         

@@ -1,7 +1,7 @@
 <html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-        <title>SIMPLE ACTIVE RECORD APPLICATION - Palgenep Center</title>
+        <title>Strona główna</title>
 
     <style>
         td {

@@ -48,7 +48,12 @@
 						
             <p>
                 <input type="submit" name="submit" value="Dodaj książkę" />
+				<input type="reset" value="Wyczyść pola" />
+				
             </p>
+			<p>
+				<input type="button" value="Anuluj" onClick="history.go(-1);return true;"></form> 
+			</p>
         </form>
         
     </body>

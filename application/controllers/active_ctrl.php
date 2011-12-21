@@ -1,12 +1,4 @@
 <?php
-/*
- * SIMPLE ACTIVE RECORD APPLICATION 
- * used for connect database using Active record
- *
- * controller : Active_ctrl
- * www.palgenep-center.com
- *
- */
 
 class Active_ctrl extends CI_Controller {
 
@@ -14,7 +6,7 @@ class Active_ctrl extends CI_Controller {
         parent::__construct();
  
         $this->load->model('Book_model');
-	//	$this->load->model('Book_model');
+		$this->load->model('Book_model');
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('session');
@@ -48,7 +40,7 @@ class Active_ctrl extends CI_Controller {
 				  "kategoria" => $kategoria
                 );
         $this->Book_model->insert($data);
-        $this->session->set_flashdata("pesan","INSERT SUCCES");
+        $this->session->set_flashdata("pesan","Książka została dodana poprawnie.");
         redirect('active_ctrl');
     }
 
@@ -77,7 +69,7 @@ class Active_ctrl extends CI_Controller {
 				  "kategoria" => $kategoria
                  );
         $this->Book_model->update($data,$id);
-        $this->session->set_flashdata("pesan","UPDATE SUCCES");
+        $this->session->set_flashdata("pesan","Książka została zedytkowana poprawnie.");
         redirect('active_ctrl');
     }
 
@@ -98,7 +90,7 @@ class Active_ctrl extends CI_Controller {
 		$kategoria = trim($this->input->post('kategoria'));
 
         $this->Book_model->delete($id);
-        $this->session->set_flashdata("pesan","DELETE SUCCES");
+        $this->session->set_flashdata("pesan","Książka została usunięta.");
         redirect('active_ctrl');
     }
 
