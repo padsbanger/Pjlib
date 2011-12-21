@@ -1,10 +1,7 @@
-<!-- SIMPLE ACTIVE RECORD APPLICATION     -->
-<!-- http://www.palgenep-center.com       -->
-<!-- views : book_delete_view.php         -->
-
 <html>
     <head>
-        <title>SIMPLE ACTIVE RECORD APPLICATION - Delete - Palgenep Center</title>
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+        <title>Usuwanie ksiażki</title>
     <style>
         td {
             border:1px #0134c5 solid;
@@ -23,23 +20,36 @@
     </head>
 
     <body>
-        <h1>FORM DELETE BOOK</h1>
+        <h1>Czy napewno chcesz usunąć tą książkę ?</h1>
         <form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/active_ctrl/del" method="post">
             <p>
-                <label>Book Name</label>
-                : <?php echo $book->book_name;?>
+                <label>Tytuł książki</label>
+                : <?php echo $book->tytul;?>
                 <input type="hidden" name="id" size="100" value="<?php echo $book->id;?>"/>
             </p>
             <p>
-                <label>Author</label>
-                : <?php echo $book->author;?>
+                <label>Imie autora</label>
+                : <?php echo $book->imie_autor;?>
+            </p>
+			<p>
+                <label>Nazwisko autora</label>
+                : <?php echo $book->nazwisko_autor;?>
             </p>
             <p>
-                <label>Publisher</label>
-                : <?php echo $book->publisher;?>
+                <label>Wydawnictwo</label>
+                : <?php echo $book->wydawnictwo;?>
             </p>
+			<p>
+                <label>Rok wydania</label>
+                : <?php echo $book->rok_wydania;?>
+            </p>
+			<p>
+	            <label>Kategoria</label>
+	            : <?php echo $book->kategoria;?>
+	       </p>
+			
             <p>
-                <input type="submit" name="submit" value="DELETE" />
+                <input type="submit" name="submit" value="Usuń książkę" />
             </p>
         </form>
         
