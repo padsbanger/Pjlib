@@ -65,7 +65,7 @@ class Active_ctrl extends CI_Controller {
 		                );
 		        $this->Book_model->insert($data);
 		        $this->session->set_flashdata("pesan","Książka została dodana poprawnie.");
-		        redirect('');
+		        redirect('active_ctrl');
 			
 		}
 	
@@ -99,7 +99,7 @@ class Active_ctrl extends CI_Controller {
                  );
         $this->Book_model->update($data,$id);
         $this->session->set_flashdata("pesan","Książka została zedytowana poprawnie.");
-        redirect('');
+        redirect('active_ctrl');
     }
 
     function delete() {
@@ -120,7 +120,7 @@ class Active_ctrl extends CI_Controller {
 
         $this->Book_model->delete($id);
         $this->session->set_flashdata("pesan","Książka została usunięta.");
-        redirect('');
+        redirect('active_ctrl');
     }
 
 

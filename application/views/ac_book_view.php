@@ -40,7 +40,7 @@
 }?></p>
         <table border="0" cellpadding="0" cellspacing="2">
             <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/history',"<strong>| Archiwum</strong>"); ?>
-				<?php echo anchor('login/logout',"<strong>| Zmień hasło</strong>"); ?>
+				<?php echo anchor('login/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	</tr>
             <tr>
                 <td class="heading"><strong>NO</strong></td>
