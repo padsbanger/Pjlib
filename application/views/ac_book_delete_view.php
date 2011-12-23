@@ -2,11 +2,24 @@
     <head>
 			<title>Usuwanie ksiażki</title>
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-			 <link rel="stylesheet" type="text/css" href="inc/css/style.css" />
+			  <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>inc/css/style.css" />
    
     </head>
 
     <body>
+	
+				<div id="header">
+
+						<div class="wrap2">
+						<img src="<?php echo base_url() ?>inc/img/logo.gif" width="100px" height="100px"/>
+						</div>
+
+					</div>
+
+			<div class="wrap">
+
+		<div id="content">
+	
         <h1>Usuwanie książki</h1>
 		<p>Książka zostanie usunięta z bazy i przeniesiona do archiwum</p>
         <form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/active_ctrl/del" method="post">
@@ -42,7 +55,9 @@
 				<input type="button" value="Nie usuwaj" onClick="history.go(-1);return true;"></form> 
             </p>
         </form>
-        
+        		</div>
+			</div>
+		
     </body>
 </html>
 

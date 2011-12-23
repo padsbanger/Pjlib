@@ -3,14 +3,22 @@
     <head>
 		<title>Dodawanie książki</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-		 <link rel="stylesheet" type="text/css" href="inc/css/style.css" />
+		 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>inc/css/style.css" />
     </head>
 
     <body>
-		
-        <h1>Formularz dodawania ksiażki</h1>
+			<div id="header">
 
-	
+					<div class="wrap2">
+					<img src="<?php echo base_url() ?>inc/img/logo.gif" width="100px" height="100px"/>
+					</div>
+
+				</div>
+
+		<div class="wrap">
+
+	<div id="content">
+		<h1>Formularz dodawania ksiażki</h1>
         <form name="inputBook" id="inputbook" action="save_data" method="post">
             <p>
                 <label>Tytuł książki</label>
@@ -46,7 +54,8 @@
         </form>
         
 				<?php echo validation_errors(); ?>
-			
+				</div>
+			</div>
 		
     </body>
 </html>

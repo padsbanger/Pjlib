@@ -3,11 +3,24 @@
     <head>
 		<title>Edycja książki</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
-        <link rel="stylesheet" type="text/css" href="inc/css/style.css" />
+       <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>inc/css/style.css" />
     </style>
     </head>
 
     <body>
+	
+			<div id="header">
+
+					<div class="wrap2">
+					<img src="<?php echo base_url() ?>inc/img/logo.gif" width="100px" height="100px"/>
+					</div>
+
+				</div>
+
+		<div class="wrap">
+
+	<div id="content">
+	
         <h1>FORM EDIT BOOK</h1>
         <form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/active_ctrl/update_data" method="post">
             <p>
@@ -41,7 +54,9 @@
 				<input type="button" value="Nic nie zmieniaj" onClick="history.go(-1);return true;"></form> 
             </p>
         </form>
-        
+        		</div>
+			</div>
+		
     </body>
 </html>
 
