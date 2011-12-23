@@ -3,12 +3,16 @@
 class Active_ctrl extends CI_Controller {
 
    function __construct() {
+		
         parent::__construct();
- 
+ 		$this->is_logged_in();
+
         $this->load->model('Book_model');
        
 
     }
+
+
 
     function index() {
         $data = $this->Book_model->getBook();
@@ -19,6 +23,16 @@ class Active_ctrl extends CI_Controller {
     function add() {
         $this->load->view('ac_book_add_view.php');
     }
+
+
+	
+	function is_logged_in() {
+		$is_logged_in = $this->session->userdata('is_logged_in');
+		
+		if(!isset($is_logged_in) || $is_logged_in != true) {
+			redirect('login');
+		}
+	}
 
     function save_data() {
 	

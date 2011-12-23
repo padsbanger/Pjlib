@@ -3,8 +3,8 @@
 		 <title>Strona główna</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-		<script src="inc/js/jquery.cookie.js" type="text/javascript"></script>
-		<link rel="stylesheet" type="text/css" href="inc/css/style.css" />
+		<script src="<?php echo base_url(); ?>inc/js/jquery.cookie.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ;?>inc/css/style.css" />
     
     </head>
     
@@ -15,11 +15,8 @@
 		$('#msg').delay(500).fadeIn(800);
 	});
 	
-
-
 	
-
-		
+	
 	
 	</script>
 	
@@ -27,7 +24,7 @@
 		<div id="header">
 			
 				<div class="wrap2">
-				<img src="inc/img/logo.gif" width="100px" height="100px"/>
+				<img src="<?php echo base_url();?>inc/img/logo.gif" width="100px" height="100px"/>
 				</div>
 			
 			</div>
@@ -35,14 +32,16 @@
 	<div class="wrap">
 	   
 		<div id="content">
-        <h1><?php echo anchor('',"STRONA GŁÓWNA") ?> </h1>
+        <h1><?php echo anchor('active_ctrl',"STRONA GŁÓWNA") ?> </h1>
         <p><?php  if($this->session->flashdata('pesan')) {
 	
-   echo "<div id ='msg'><img src='inc/img/msg.png' width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''id='koniec'> [ X ]</a></p></div>";} else {
+   echo "<div id ='msg'><img src=";echo base_url()."inc/img/msg.png width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''id='koniec'> [ X ]</a></p></div>";} else {
 	echo ''; 
 }?></p>
         <table border="0" cellpadding="0" cellspacing="2">
-            <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/history',"<strong>| Archiwum</strong>"); ?></tr>
+            <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/history',"<strong>| Archiwum</strong>"); ?>
+				<?php echo anchor('login/logout',"<strong>| Zmień hasło</strong>"); ?>
+			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	</tr>
             <tr>
                 <td class="heading"><strong>NO</strong></td>
                 <td class="heading"><strong>Tytuł książki</strong></td>
@@ -85,7 +84,8 @@
 		<script>
 		$(function () {
 		  if ($.cookie("loaded") != "true") {
-		      $('#fadein').hide().fadeIn('3500');
+		      $('#fadein').hide().fadeIn("3500");
+			
 		      $.cookie("loaded", "true",{ expires: new Date() });
 		  } else {
 			var div = document.getElementById('fadein');
