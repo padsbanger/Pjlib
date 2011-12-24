@@ -34,13 +34,28 @@
 		<div id="content">
 
 
-<?php echo form_open('login/validate_credentials');  ?>
-<?php echo form_input('username');  ?>
-<?php echo form_password('password');  ?>
-<?php echo form_submit('submit', 'Login');  ?>
+<?php echo form_open('active_ctrl/changepassword');  ?>
+<p>
+<label for="password">Aktualne hasło</label>
+
+<input type="text" name="password" id="password" />
+</p>
+<p>
+<label for="newpassword1">Nowe hasło</label>
+<input type="text" name="newpassword1" id="newpassword1" />
+</p>
+<p>
+<label for="newpassword2">Potwierdź nowe hasło</label>
+<input type="text" name="newpassword2" id="newpassword2" />
+</p>
+<input type="submit" value="Zmień hasło" />
+
 
 <?php echo form_close(); ?>
-	<?php echo validation_errors(); ?>
+<?php echo validation_errors(); ?>
+<?php echo ($this->session->flashdata('pesan')); ?>
+	<input type="button" value="Anuluj" onClick="history.go(-1);return true;">
+
 	</div>
 	</div>
 	<script>
@@ -57,5 +72,3 @@
 	</script>
 </body>
 </html>
-
-

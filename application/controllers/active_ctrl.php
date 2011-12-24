@@ -123,6 +123,54 @@ class Active_ctrl extends CI_Controller {
         redirect('active_ctrl');
     }
 
+	function change_pass() {
+		
+			
+			 $this->load->view('change_password_view.php');
+	
+	}
+	
+	function changepassword() {
+			$this->load->model('login_model');
+			$this->form_validation->set_rules('password','Stare hasło', 'trim|required');
+			$this->form_validation->set_rules('newpassword1','Nowe hasła ', 'trim|required|min_length[4]');
+			$this->form_validation->set_rules('newpassword2','Nowe hasła', 'trim|required|matches[newpassword1]');
+			
+			
+			$current_pass = $this->session->userdata('password');
+			
+			
+			if ($current_pass != $this->input->post('password')) {
+				 $this->session->set_flashdata("pesan","Podałeś złe aktualne hasło.");
+				 
+			}  else {
+				
+			}
+		
+			
+			
+
+
+
+
+		if($this->form_validation->run() == FALSE) {
+
+					$this->load->view('change_password_view.php');
+				} else {
+		
+		
+		$data = array (
+			'password' =>$this->input->post('newpassword1')
+		
+			
+			);
+			$this->login_model->updatepass($data);
+			 $this->session->set_flashdata("pesan","Hasło zostało zmienione.");
+			redirect('active_ctrl');
+		}
+	}
+
+	
 
 }
 
