@@ -22,6 +22,15 @@
         return ($i->num_rows > 0) ? $i->result() : array();
     }
 
+
+	 function getArchives() {
+	 
+        $this->db->from('archives');	
+	    $this->db->order_by("id", "desc");
+	    $i = $this->db->get(); 
+        return ($i->num_rows > 0) ? $i->result() : array();
+    }
+
     function getBookById($id) {
         $this->db->from('book');	
 	    $this->db->where("id", $id);
@@ -32,6 +41,11 @@
     function insert($data) {
         return $this->db->insert('book', $data); 
     }
+
+	function insert2($data) {
+        return $this->db->insert('archives', $data); 
+    }
+
 
     function update($data,$id) {
         $this->db->where('id', $id);

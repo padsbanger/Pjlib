@@ -34,13 +34,20 @@
 		<div id="content">
 
 
-<?php echo form_open('login/validate_credentials');  ?>
-<?php echo form_input('username');  ?>
-<?php echo form_password('password');  ?>
-<?php echo form_submit('submit', 'Login');  ?>
+
+<form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/login/validate_credentials" method="post">
+
+
+
+ <input type="text" name="username" size="30"/>
+  <input type="password" name="password" size="30"/>
+
+
+<?php echo form_submit('submit', 'Zaloguj');  ?>
 
 <?php echo form_close(); ?>
-	<?php echo validation_errors(); ?>
+<?php echo validation_errors(); ?>
+<p><?php  echo $this->session->flashdata('pesan'); ?></p>
 	</div>
 	</div>
 	<script>

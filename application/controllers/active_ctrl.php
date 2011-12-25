@@ -24,13 +24,19 @@ class Active_ctrl extends CI_Controller {
         $this->load->view('ac_book_add_view.php');
     }
 
-
+	
+	function archives() {
+		$data = $this->Book_model->getArchives();
+        $input['book'] = $data;
+		$this->load->view('archives_view',$input);
+	}
+	
 	
 	function is_logged_in() {
 		$is_logged_in = $this->session->userdata('is_logged_in');
 		
-		if(!isset($is_logged_in) || $is_logged_in != true) {
-			redirect('login');
+		if(!isset($is_logged_in) || $is_logged_in != 'true') {
+			 $this->load->view('login_view');
 		}
 	}
 
@@ -117,8 +123,18 @@ class Active_ctrl extends CI_Controller {
 	    $wydawnictwo = trim($this->input->post('wydawnictwo'));
 	    $rok_wydania = trim($this->input->post('rok_wydania'));
 		$kategoria = trim($this->input->post('kategoria'));
+		
 
-        $this->Book_model->delete($id);
+	        $data = array(
+	                  "tytul" => $tytul,
+	                  "imie_autor" => $imie_autor,
+	                  "nazwisko_autor" => $nazwisko_autor,
+					  "wydawnictwo" => $wydawnictwo,
+					  "rok_wydania" => $rok_wydania,
+					  "kategoria" => $kategoria
+	                );
+	        $this->Book_model->insert2($data);
+       		$this->Book_model->delete($id);
         $this->session->set_flashdata("pesan","Książka została usunięta.");
         redirect('active_ctrl');
     }

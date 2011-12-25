@@ -32,14 +32,13 @@
 	<div class="wrap">
 	   
 		<div id="content">
-        <h1><?php echo anchor('active_ctrl',"STRONA GŁÓWNA") ?> </h1>
-        <p><?php  if($this->session->flashdata('pesan')) {
-	
-   echo "<div id ='msg'><img src=";echo base_url()."inc/img/msg.png width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''id='koniec'> [ X ]</a></p></div>";} else {
-	echo ''; 
-}?></p>
+        <h1><?php echo anchor('active_ctrl',"Archiwum") ?> </h1>
+       
         <table border="0" cellpadding="0" cellspacing="2">
-            <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
+            <tr><td colspan="8" class="noneborder">	<tr><td colspan="8" class="noneborder">
+<?php echo anchor('active_ctrl',"<strong>Strona główna</strong> |");?>
+
+<?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	</tr>
             <tr>
@@ -50,7 +49,7 @@
                 <td class="heading"><strong>Wydawnictwo</strong></td>
 				<td class="heading"><strong>Rok wydania</strong></td>
 				<td class="heading"><strong>Kategoria</strong></td>
-                <td class="heading"><strong>Czynności</strong></td>
+                <td class="heading"><strong>Data usunięcia</strong></td>
             </tr>
             <?php 
             $i=1;
@@ -64,9 +63,7 @@
 				<td><?php echo $row->wydawnictwo;?></td>
                 <td><?php echo $row->rok_wydania;?></td>
 				<td><?php echo $row->kategoria;?></td>
-                <td><?php echo anchor('active_ctrl/edit/'.$row->id,"Edytuj"); ?> |
-                    <?php echo anchor('active_ctrl/delete/'.$row->id,"Usuń"); ?>
-                </td>
+                <td><?php echo $row->data_usuniecia; ?></td>
                 
             </tr>
             <?php $i++; } ?>

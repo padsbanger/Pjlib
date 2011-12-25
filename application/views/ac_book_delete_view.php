@@ -26,26 +26,32 @@
             <p>
                 <label>Tytuł książki</label>
                 : <?php echo $book->tytul;?>
+				 <input type="hidden" name="tytul" value="<?php echo $book->tytul;?>"/>
                 <input type="hidden" name="id" size="100" value="<?php echo $book->id;?>"/>
             </p>
             <p>
                 <label>Imie autora</label>
+				<input type="hidden" name="imie_autor" value="<?php echo $book->imie_autor;?>"/>
                 : <?php echo $book->imie_autor;?>
             </p>
 			<p>
                 <label>Nazwisko autora</label>
+					<input type="hidden" name="nazwisko_autor" value="<?php echo $book->nazwisko_autor;?>"/>
                 : <?php echo $book->nazwisko_autor;?>
             </p>
             <p>
                 <label>Wydawnictwo</label>
+				<input type="hidden" name="wydawnictwo" value="<?php echo $book->wydawnictwo;?>"/>
                 : <?php echo $book->wydawnictwo;?>
             </p>
 			<p>
                 <label>Rok wydania</label>
+				<input type="hidden" name="rok_wydania" value="<?php echo $book->rok_wydania;?>"/>
                 : <?php echo $book->rok_wydania;?>
             </p>
 			<p>
 	            <label>Kategoria</label>
+				<input type="hidden" name="kategoria" value="<?php echo $book->kategoria;?>"/>
 	            : <?php echo $book->kategoria;?>
 	       </p>
 			

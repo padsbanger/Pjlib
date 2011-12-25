@@ -5,18 +5,22 @@ class Login extends CI_Controller {
 	function index() {
 		
 		$this->load->view('login_view');
+		
+	
 	}
 	
 	function validate_credentials() {
 		$this->load->model('login_model');
 		$query = $this->login_model->validate();
-		
+			
+			
 			$this->form_validation->set_rules('username','Login', 'trim|required');
 			$this->form_validation->set_rules('password','Hasło', 'trim|required');
 		
 				if($this->form_validation->run() == FALSE) {
-
+					$this->session->set_flashdata("pesan","Podałeś błędny login lub hasło");
 					$this->load->view('login_view.php');
+					
 				} else {
 		
 		if($query) {
@@ -31,7 +35,8 @@ class Login extends CI_Controller {
 			redirect('active_ctrl');
 		}
 		else {
-			$this->index();
+			$this->session->set_flashdata("pesan","Podałeś błędny login lub hasło");
+			$this->load->view('login_view.php');
 		}
 	}
 }
