@@ -49,6 +49,7 @@
 <input type="text" name="newpassword2" id="newpassword2" />
 </p>
 <input type="submit" value="Zmień hasło" />
+<a href="<?php echo base_url();?>/index.php/active_ctrl" class="powrot">Nie zmieniaj hasła.</a>
 
 
 <?php echo form_close(); ?>
@@ -57,8 +58,7 @@
 
 <?php echo ($this->session->flashdata('pesan')); ?>
 </div>
-	<input type="button" value="Anuluj" onClick="history.go(-1);return true;">
-
+		
 	</div>
 	</div>
 	<script>

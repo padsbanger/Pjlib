@@ -1,4 +1,3 @@
-
 <html>
     <head>
 		<title>Dodawanie książki</title>
@@ -49,7 +48,8 @@
 				
             </p>
 			<p>
-				<input type="button" value="Anuluj" onClick="history.go(-1);return true;"></form> 
+				<a href="<?php echo base_url();?>/index.php/active_ctrl" class="powrot">Nie dodawaj</a>
+			</form> 
 			</p>
         </form>
         <div class="error">

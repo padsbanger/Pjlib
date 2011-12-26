@@ -15,9 +15,6 @@
 		$('#msg').delay(500).fadeIn(800);
 	});
 	
-	
-	
-	
 	</script>
 	
 	

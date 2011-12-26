@@ -58,7 +58,8 @@
             <p>
 				<h3>Czy jesteś pewnien że chcesz usunąć tą książkę ?<h3>
                 <input type="submit" name="submit" value="Usuń książkę" />
-				<input type="button" value="Nie usuwaj" onClick="history.go(-1);return true;"></form> 
+				</form> 
+				<a href="<?php echo base_url();?>/index.php/active_ctrl" class="powrot">Nie usuwaj</a>
             </p>
         </form>
         		</div>

@@ -21,7 +21,7 @@
 
 	<div id="content">
 	
-        <h1>FORM EDIT BOOK</h1>
+        <h1>Formularz edycji książk</h1>
         <form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/active_ctrl/update_data" method="post">
             <p>
                 <label>Tytuł książki</label>
@@ -51,7 +51,9 @@
 		    </p>
             <p>
                 <input type="submit" name="submit" value="Uaktualnij" />
-				<input type="button" value="Nic nie zmieniaj" onClick="history.go(-1);return true;"></form> 
+			
+				<a href="<?php echo base_url();?>/index.php/active_ctrl" class="powrot">Nie uaktualniaj</a>
+			</form> 
             </p>
         </form>
         		</div>
