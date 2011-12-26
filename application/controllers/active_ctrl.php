@@ -6,7 +6,7 @@ class Active_ctrl extends CI_Controller {
 		
         parent::__construct();
  		$this->is_logged_in();
-
+	
         $this->load->model('Book_model');
        
 
@@ -15,7 +15,20 @@ class Active_ctrl extends CI_Controller {
 
 
     function index() {
-        $data = $this->Book_model->getBook();
+		$this->load->library('pagination');
+		 
+		//pagination config
+		
+		$config['base_url'] = 'http://localhost:8888/pjlib/index.php/active_ctrl/index';
+		$config['total_rows'] = $this->Book_model->countBook();
+		$config['per_page']=10;
+		$config['num_links']=5;
+	
+		$this->pagination->initialize($config);
+		
+		print_r($config['total_rows']);
+		
+        $data = $this->Book_model->getBook($config['per_page'],$this->uri->segment(3));
         $input['book'] = $data;
         $this->load->view('ac_book_view.php',$input);
     }
@@ -164,10 +177,6 @@ class Active_ctrl extends CI_Controller {
 			}
 		
 			
-			
-
-
-
 
 		if($this->form_validation->run() == FALSE) {
 

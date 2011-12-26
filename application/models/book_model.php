@@ -14,14 +14,15 @@
 	   parent::__construct();  
      }   
 	 
-	 function getBook() {
-	 
-        $this->db->from('book');	
-	    $this->db->order_by("id", "desc");
-	    $i = $this->db->get(); 
+	 function getBook($limit,$offset) {   
+	    $i = $this->db->get('book',$limit, $offset); 
         return ($i->num_rows > 0) ? $i->result() : array();
     }
-
+	
+	function countBook() {
+	    $i = $this->db->get('book'); 
+        return $count = $i->num_rows();
+	}
 
 	 function getArchives() {
 	 
