@@ -24,17 +24,18 @@
 		<div id="header">
 			
 				<div class="wrap2">
-				<img src="<?php echo base_url();?>inc/img/logo.gif" width="100px" height="100px"/>
+				<img src="<?php echo base_url();?>inc/img/logo.png"/>
 				</div>
 			
 			</div>
 	
 	<div class="wrap">
 	   
-		<div id="content">
-
+		
+<br/><br/><br/><br/> <!--O MATKO CO JA ZROBIL-->
 
 <div id="login_form">
+	<h2><a href="login">Zaloguj się</a></h2>
 <form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/login/validate_credentials" method="post">
 
 
@@ -46,14 +47,17 @@
 <?php echo form_submit('submit', 'Zaloguj');  ?>
 
 <?php echo form_close(); ?>
+<div class="error">
 <?php echo validation_errors(); ?>
 <p><?php  echo $this->session->flashdata('pesan'); ?></p>
+	</div>
 	
 	
+	</div>
+	</div>
 		<div id="footer">
 				<p>&copy; 2011  <a href="http://gdansk.pjwstk.edu.pl">PJWSTK Gdańsk</a></p>
 		</div>
-	</div>
 	<script>
 	$(function () {
 	  if ($.cookie("loaded") != "true") {

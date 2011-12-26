@@ -10,7 +10,7 @@
 			<div id="header">
 
 					<div class="wrap2">
-					<img src="<?php echo base_url() ?>inc/img/logo.gif" width="100px" height="100px"/>
+						<img src="<?php echo base_url();?>inc/img/logo.png"/>
 					</div>
 
 				</div>
@@ -52,8 +52,9 @@
 				<input type="button" value="Anuluj" onClick="history.go(-1);return true;"></form> 
 			</p>
         </form>
-        
+        <div class="error">
 				<?php echo validation_errors(); ?>
+		</div>
 				</div>
 			</div>
 		

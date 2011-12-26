@@ -11,7 +11,7 @@
 				<div id="header">
 
 						<div class="wrap2">
-						<img src="<?php echo base_url() ?>inc/img/logo.gif" width="100px" height="100px"/>
+						<img src="<?php echo base_url();?>inc/img/logo.png"/>
 						</div>
 
 					</div>

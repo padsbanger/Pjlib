@@ -24,7 +24,7 @@
 		<div id="header">
 			
 				<div class="wrap2">
-				<img src="<?php echo base_url();?>inc/img/logo.gif" width="100px" height="100px"/>
+				<img src="<?php echo base_url();?>inc/img/logo.png"/>
 				</div>
 			
 			</div>
@@ -52,8 +52,11 @@
 
 
 <?php echo form_close(); ?>
-<?php echo validation_errors(); ?>
+<div class="error">
+		<?php echo validation_errors(); ?>
+
 <?php echo ($this->session->flashdata('pesan')); ?>
+</div>
 	<input type="button" value="Anuluj" onClick="history.go(-1);return true;">
 
 	</div>
