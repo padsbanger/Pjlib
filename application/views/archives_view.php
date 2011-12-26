@@ -32,11 +32,13 @@
 	<div class="wrap">
 	   
 		<div id="content">
-        <h1><?php echo anchor('active_ctrl',"Archiwum") ?> </h1>
+        <h1><?php echo anchor('active_ctrl/archives',"Archiwum") ?> </h1>
        
+		<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
+
         <table border="0" cellpadding="0" cellspacing="2">
             <tr><td colspan="8" class="noneborder">	<tr><td colspan="8" class="noneborder">
-<?php echo anchor('active_ctrl',"<strong>Strona główna</strong> |");?>
+<?php echo anchor('active_ctrl/',"<strong>Strona główna</strong> |");?>
 
 <?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
@@ -73,7 +75,7 @@
 			</div>
 				
 				<div id="footer">
-
+						<p>&copy; 2011  <a href="http://gdansk.pjwstk.edu.pl">PJWSTK Gdańsk</a></p>
 				</div>			
 			
 		</div>

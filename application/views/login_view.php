@@ -34,13 +34,13 @@
 		<div id="content">
 
 
-
+<div id="login_form">
 <form name="inputBook" id="inputbook" action="<?=base_url();?>index.php/login/validate_credentials" method="post">
 
 
 
- <input type="text" name="username" size="30"/>
-  <input type="password" name="password" size="30"/>
+ <input type="text" name="username"/>
+  <input type="password" name="password" />
 
 
 <?php echo form_submit('submit', 'Zaloguj');  ?>
@@ -48,7 +48,11 @@
 <?php echo form_close(); ?>
 <?php echo validation_errors(); ?>
 <p><?php  echo $this->session->flashdata('pesan'); ?></p>
-	</div>
+	
+	
+		<div id="footer">
+				<p>&copy; 2011  <a href="http://gdansk.pjwstk.edu.pl">PJWSTK Gdańsk</a></p>
+		</div>
 	</div>
 	<script>
 	$(function () {

@@ -24,11 +24,15 @@
         return $count = $i->num_rows();
 	}
 
-	 function getArchives() {
+	function countArchive() {
+		$i = $this->db->get('archives'); 
+        return $count = $i->num_rows();
+	}
+
+
+	 function getArchives($limit,$offset) {
 	 
-        $this->db->from('archives');	
-	    $this->db->order_by("id", "desc");
-	    $i = $this->db->get(); 
+	    $i = $this->db->get('archives',$limit, $offset); 
         return ($i->num_rows > 0) ? $i->result() : array();
     }
 

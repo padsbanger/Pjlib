@@ -8,25 +8,25 @@ class Active_ctrl extends CI_Controller {
  		$this->is_logged_in();
 	
         $this->load->model('Book_model');
-       
+       	$this->load->library('pagination');
 
     }
 
 
 
     function index() {
-		$this->load->library('pagination');
+	
 		 
 		//pagination config
 		
 		$config['base_url'] = 'http://localhost:8888/pjlib/index.php/active_ctrl/index';
 		$config['total_rows'] = $this->Book_model->countBook();
 		$config['per_page']=10;
-		$config['num_links']=5;
+		$config['num_links']=15;
 	
 		$this->pagination->initialize($config);
 		
-		print_r($config['total_rows']);
+	
 		
         $data = $this->Book_model->getBook($config['per_page'],$this->uri->segment(3));
         $input['book'] = $data;
@@ -39,7 +39,15 @@ class Active_ctrl extends CI_Controller {
 
 	
 	function archives() {
-		$data = $this->Book_model->getArchives();
+		
+	    $config['base_url'] = 'http://localhost:8888/pjlib/index.php/active_ctrl/archives';
+		$config['total_rows'] = $this->Book_model->countArchive();
+		$config['per_page']=10;
+		$config['num_links']=15;
+		
+		$this->pagination->initialize($config);
+		
+		$data = $this->Book_model->getArchives($config['per_page'],$this->uri->segment(3));
         $input['book'] = $data;
 		$this->load->view('archives_view',$input);
 	}

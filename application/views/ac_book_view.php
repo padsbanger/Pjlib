@@ -9,15 +9,12 @@
     </head>
     
     <body>
+
 	<div id="fadein">
 	<script>
 	$(document).ready(function(){	
 		$('#msg').delay(500).fadeIn(800);
 	});
-	
-	
-	
-	
 	</script>
 	
 	
@@ -78,7 +75,7 @@
 			</div>
 				
 				<div id="footer">
-
+						<p>&copy; 2011  <a href="http://gdansk.pjwstk.edu.pl">PJWSTK Gdańsk</a></p>
 				</div>			
 			
 		</div>
