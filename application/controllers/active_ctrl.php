@@ -14,23 +14,49 @@ class Active_ctrl extends CI_Controller {
 
 
 
-    function index() {
+    function index($sort_by = 'tytul', $sort_order = 'asc', $offset = 0) {
 	
 		 
 		//pagination config
 		
-		$config['base_url'] = 'http://localhost:8888/pjlib/index.php/active_ctrl/index';
-		$config['total_rows'] = $this->Book_model->countBook();
-		$config['per_page']=10;
-		$config['num_links']=15;
-	
-		$this->pagination->initialize($config);
+		
+			$limit = 20;
+			$data['fields'] = array(
+				'id' => 'ID',
+				'tytul' => 'Tytuł',
+				'imie_autor' => 'Imie autora',
+				'nazwisko_autor' => 'Nazwisko autora',
+				'rok_wydania' => 'Rok wydania',
+				'wydawnictwo' => 'Wydawnictwo',
+				'kategoria' =>'Kategoria'
+			);
+		
+			$results = $this->Book_model->getBook($limit, $offset, $sort_by, $sort_order);
+
+			$data['films'] = $results['rows'];
+			$data['num_results'] = $results['num_rows'];
+			
+			
+				$this->load->library('pagination');
+				$config = array();
+				$config['base_url'] = site_url("active_ctrl/index/$sort_by/$sort_order");
+				$config['total_rows'] = $data['num_results'];
+				$config['per_page'] = $limit;
+				$config['uri_segment'] = 5;
+				$this->pagination->initialize($config);
+				$data['pagination'] = $this->pagination->create_links();
+
+				$data['sort_by'] = $sort_by;
+				$data['sort_order'] = $sort_order;
+
+
+				$this->load->view('ac_book_view.php', $data);
+		
+		
+		// - resztki
 		
 	
-		
-        $data = $this->Book_model->getBook($config['per_page'],$this->uri->segment(3));
-        $input['book'] = $data;
-        $this->load->view('ac_book_view.php',$input);
+       
     }
 
     function add() {

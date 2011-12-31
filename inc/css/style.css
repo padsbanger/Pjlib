@@ -178,8 +178,9 @@ padding-bottom: 10px;
 padding-top: 10px;
 }
     
-.heading {
+#heading {
 background-color: #E3E3E3;
+font:85%;
 }
 
 	a {
@@ -191,5 +192,12 @@ color: #B80000;
 	a:hover {
 color: #0289ce;
 }
-		
+.sort_asc:after {
 	
+		content: '\25B2';
+	}
+.sort_desc:after {
+		
+		
+		content: "\25BC";
+	}

@@ -14,9 +14,33 @@
 	   parent::__construct();  
      }   
 	 
-	 function getBook($limit,$offset) {   
-	    $i = $this->db->get('book',$limit, $offset); 
-        return ($i->num_rows > 0) ? $i->result() : array();
+	 function getBook($limit,$offset, $sort_by, $sort_order) {   
+		
+		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
+		$sort_columns  = array('id','tytul','imie_autor','nazwisko_autor','wydawnictwo','rok_wydania','kategoria');
+		
+		$sort_by = (in_array($sort_by,$sort_columns)) ? $sort_by: 'tytul';
+		
+			$q = $this->db->select('id,tytul, imie_autor, nazwisko_autor, wydawnictwo, rok_wydania, kategoria')
+				->from('book')
+				->limit($limit, $offset)
+				->order_by($sort_by, $sort_order);
+
+			$ret['rows'] = $q->get()->result();
+
+			// count query
+			$q = $this->db->select('COUNT(*) as count', FALSE)
+				->from('book');
+
+			$tmp = $q->get()->result();
+
+			$ret['num_rows'] = $tmp[0]->count;
+
+			return $ret;
+		
+		
+	   // $i = $this->db->get('book',$limit, $offset); 
+       // return ($i->num_rows > 0) ? $i->result() : array();
     }
 	
 	function countBook() {

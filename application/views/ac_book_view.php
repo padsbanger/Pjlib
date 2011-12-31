@@ -41,34 +41,38 @@
             <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	</tr>
-            <tr>
-                <td class="heading"><strong>NO</strong></td>
-                <td class="heading"><strong>Tytuł książki</strong></td>
-                <td class="heading"><strong>Imie autora</strong></td>
-				<td class="heading"><strong>Nazwisko autora</strong></td>
-                <td class="heading"><strong>Wydawnictwo</strong></td>
-				<td class="heading"><strong>Rok wydania</strong></td>
-				<td class="heading"><strong>Kategoria</strong></td>
-                <td class="heading"><strong>Czynności</strong></td>
-            </tr>
-            <?php 
-            $i=1;
-            foreach($book as $row) { ?>
+          
+		
+			<?php foreach($fields as $field_name => $field_display): ?>
+	
+				
+			<td id="heading" <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
+				<?php echo anchor("active_ctrl/index/$field_name/" .
+					(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
+					$field_display); ?>
+			</td>
+			<?php endforeach; ?>
+			
+          </td>
             
             <tr>
-                <td><?php echo $i?></td>
-                <td><?php echo $row->tytul;?></td>
-                <td><?php echo $row->imie_autor;?></td>
-				<td><?php echo $row->nazwisko_autor;?></td>
-				<td><?php echo $row->wydawnictwo;?></td>
-                <td><?php echo $row->rok_wydania;?></td>
-				<td><?php echo $row->kategoria;?></td>
-                <td><?php echo anchor('active_ctrl/edit/'.$row->id,"Edytuj"); ?> |
-                    <?php echo anchor('active_ctrl/delete/'.$row->id,"Usuń"); ?>
-                </td>
+               		<?php foreach($films as $film): ?>
+					<tr>
+						<?php foreach($fields as $field_name => $field_display): ?>
+						<td>
+							<?php echo $film->$field_name; ?>
+						</td>
+						
+						<?php endforeach; ?>
+						 <td><?php echo anchor('active_ctrl/edit/'.$film->id,"Edytuj"); ?> |
+			                    <?php echo anchor('active_ctrl/delete/'.$film->id,"Usuń"); ?>
+			                </td>
+					</tr>
+					<?php endforeach; ?>
+               
                 
             </tr>
-            <?php $i++; } ?>
+          
         </table>
 
 		
