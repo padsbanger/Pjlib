@@ -150,9 +150,41 @@ border-radius: 5px;
 box-shadow: 1px 1px 2px rgba(50, 50, 50, 0.75);
 }
 
-	input[type=submit]:hover, input[type=reset]:hover {
+input[type=submit]:hover, input[type=reset]:hover {
 background: #e3e3e3;
 cursor: pointer;
+}
+
+
+#search {
+	-webkit-border-radius: ;
+	-moz-border-radius: ;
+	border-radius: ;
+	-webkit-box-shadow: ;
+	-moz-box-shadow: ;
+	box-shadow: ;
+	margin-top:-20px;
+
+}
+
+
+#search input[type=submit] {
+	
+	float:right;	
+	padding:4px;
+	height:20px;
+	
+
+	
+}
+
+
+#search input[type=text] {
+	height:20px;
+	width:200px;
+	float:right;
+	
+	
 }
 
 #footer {
@@ -173,8 +205,8 @@ padding: 5px;
 font-size: 12px;
 }
     .noneborder {
-margin: 2px;
-padding-bottom: 10px;
+margin: 5px;
+padding-bottom: 0px;
 padding-top: 10px;
 }
     

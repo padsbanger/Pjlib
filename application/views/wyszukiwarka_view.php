@@ -39,49 +39,79 @@
  
         <table border="0" cellpadding="0" cellspacing="2">
             <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
-				<?php echo anchor('active_ctrl/display',"<strong>| Wyszukaj</strong>"); ?>	
+				<?php echo anchor('active_ctrl/wyszukaj',"<strong>|<u> Wyszukaj</u></strong>"); ?>	
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	
 			
-			<div id="search">
-			<input type="submit" name="submit" value="Wyszukaj" />
-            <input type="text" name="kategoria" value="<?php echo set_value('kategoria') ?>" size="2" />
-			
+			<?php echo form_open('active_ctrl/search'); ?>
+				<div>
+					<?php echo form_label('Tytul:', 'tytul'); ?>
+					<?php echo form_input('tytul', set_value('tytul'), 'id="tytul"'); ?>
+				</div>
+
+				<div>
+					<?php echo form_label('Kategoria:', 'kategoria'); ?>
+					<?php echo form_dropdown('kategoria', $category_options, 
+						set_value('kategoria'), 'id="kategoria"'); ?>
+				</div>
+
+				<div>
+					<?php echo form_label('Rok wydania:', 'rok_wydania'); ?>
+					<?php echo form_dropdown('rok_wydania_comparison', 
+						array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<') , 
+						set_value('rok_wydania_comparison'), 'id="rok_wydania_comparison"'); ?>
+					<?php echo form_input('rok_wydania', set_value('rok_wydania'), 'id="rok_wydania"'); ?>
+				</div>
+
+				<div>
+					<?php echo form_submit('action', 'Search'); ?>
+				</div>
+
+			<?php echo form_close(); ?>
+
+			<div>
+				Znaleziono <?php echo $num_results; ?> książek.
 			</div>
-			</tr>
-          
-		
-			<?php foreach($fields as $field_name => $field_display): ?>
-	
+
+			<table>
 				
-			<td id="heading" <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
-				<?php echo anchor("active_ctrl/index/$field_name/" .
-					(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
-					$field_display); ?>
-			</td>
-			<?php endforeach; ?>
-			
-          </td>
-            
-            <tr>
-               		<?php foreach($films as $film): ?>
+
+
+					<?php foreach($fields as $field_name => $field_display): ?>
+
+
+					<td id="heading" <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
+						<?php echo anchor("active_ctrl/index/$field_name/" .
+							(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
+							$field_display); ?>
+					</td>
+					
+					<?php endforeach; ?>
+
+		          </td>
+
+				<tbody>
+					<?php foreach($films as $film): ?>
 					<tr>
 						<?php foreach($fields as $field_name => $field_display): ?>
 						<td>
 							<?php echo $film->$field_name; ?>
 						</td>
-						
 						<?php endforeach; ?>
 						 <td><?php echo anchor('active_ctrl/edit/'.$film->id,"Edytuj"); ?> |
 			                    <?php echo anchor('active_ctrl/delete/'.$film->id,"Usuń"); ?>
 			                </td>
 					</tr>
-					<?php endforeach; ?>
-               
-                
-            </tr>
-          
-        </table>
+					<?php endforeach; ?>			
+				</tbody>
+
+			</table>
+
+			<?php if (strlen($pagination)): ?>
+			<div>
+				Pages: <?php echo $pagination; ?>
+			</div>
+			<?php endif; ?>
 
 		
 			</div>

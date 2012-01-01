@@ -1,12 +1,4 @@
 <?php 
-/*
- * SIMPLE ACTIVE RECORD APPLICATION 
- * used for connect database using Active record
- *
- * model : active_record_book_model
- * www.palgenep-center.com
- *
- */
  
  class Book_model extends CI_Model { 
      
@@ -86,6 +78,71 @@
         $this->db->where('id', $id);
 		$i = $this->db->delete('book'); 	 
 		return $i;
+	}
+	
+	function search($query_array, $limit, $offset, $sort_by, $sort_order) {
+		
+		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
+		$sort_columns = array('id', 'tytul', 'imie_autor', 'nazwisko_autor', 'wydawnictwo', 'rok_wydania','kategoria');
+		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'tytul';
+		
+		// results query
+		$q = $this->db->select('id, tytul, imie_autor, nazwisko_autor, wydawnictwo, rok_wydania,kategoria')
+			->from('book')
+			->limit($limit, $offset)
+			->order_by($sort_by, $sort_order);
+		
+		if (strlen($query_array['tytul'])) {
+			$q->like('tytul', $query_array['tytul']);
+		}
+		if (strlen($query_array['kategoria'])) {
+			$q->where('kategoria', $query_array['kategoria']);
+		}
+		if (strlen($query_array['rok_wydania'])) {
+			$operators = array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
+			$operator = $operators[$query_array['rok_wydania_comparison']];
+						
+			$q->where("rok_wydania $operator", $query_array['rok_wydania']);
+		}
+		
+		$ret['rows'] = $q->get()->result();
+		
+		// count query
+		$q = $this->db->select('COUNT(*) as count', FALSE)
+			->from('book');
+		
+		if (strlen($query_array['tytul'])) {
+			$q->like('tytul', $query_array['tytul']);
+		}
+		if (strlen($query_array['kategoria'])) {
+			$q->where('kategoria', $query_array['kategoria']);
+		}
+		if (strlen($query_array['rok_wydania'])) {
+			$operators = array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<');
+			$operator = $operators[$query_array['rok_wydania_comparison']];
+						
+			$q->where("rok_wydania $operator", $query_array['rok_wydania']);
+		}
+		
+		$tmp = $q->get()->result();
+		
+		$ret['num_rows'] = $tmp[0]->count;
+		
+		return $ret;
+	}
+	
+	function category_options() {
+		
+		$rows = $this->db->select('name')
+			->from('category')
+			->get()->result();
+		
+		$category_options = array('' => '');
+		foreach ($rows as $row) {
+			$category_options[$row->name] = $row->name;
+		}
+		
+		return $category_options;
 	}
  
  }
