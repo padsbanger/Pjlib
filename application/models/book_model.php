@@ -133,13 +133,14 @@
 	
 	function category_options() {
 		
-		$rows = $this->db->select('name')
-			->from('category')
+		$rows = 
+			$this->db->distinct()->select('kategoria')
+			->from('book')
 			->get()->result();
 		
 		$category_options = array('' => '');
 		foreach ($rows as $row) {
-			$category_options[$row->name] = $row->name;
+			$category_options[$row->kategoria] = $row->kategoria;
 		}
 		
 		return $category_options;

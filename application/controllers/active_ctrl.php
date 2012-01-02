@@ -21,7 +21,7 @@ class Active_ctrl extends CI_Controller {
 		//pagination config
 		
 		
-			$limit = 20;
+			$limit = 10;
 			$data['fields'] = array(
 				'id' => 'ID',
 				'tytul' => 'Tytuł',
@@ -57,7 +57,7 @@ class Active_ctrl extends CI_Controller {
 
 	function display($query_id = 0, $sort_by = 'tytul', $sort_order = 'asc', $offset = 0) {
 		
-		$limit = 20;
+		$limit = 10;
 		$data['fields'] = array(
 			'id' => 'ID',
 			'tytul' => 'Tytuł',

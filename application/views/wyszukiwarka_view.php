@@ -35,39 +35,42 @@
    echo "<div id ='msg'><img src=";echo base_url()."inc/img/msg.png width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''id='koniec'> [ X ]</a></p></div>";} else {
 	echo ''; 
 }?></p>
-<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
+
  
+	<?php echo form_open('active_ctrl/search'); ?>
+		<div>
+			<?php echo form_label('Tytul:', 'tytul'); ?>
+			<?php echo form_input('tytul', set_value('tytul'), 'id="tytul"'); ?>
+		</div>
+
+		<div>
+			<?php echo form_label('Kategoria:', 'kategoria'); ?>
+			<?php echo form_dropdown('kategoria', $category_options, 
+				set_value('kategoria'), 'id="kategoria"'); ?>
+		</div>
+
+		<div>
+			<?php echo form_label('Rok wydania:', 'rok_wydania'); ?>
+			<?php echo form_dropdown('rok_wydania_comparison', 
+				array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<') , 
+				set_value('rok_wydania_comparison'), 'id="rok_wydania_comparison"'); ?>
+			<?php echo form_input('rok_wydania', set_value('rok_wydania'), 'id="rok_wydania"'); ?>
+		</div>
+
+		<div>
+			<?php echo form_submit('action', 'Wyszukaj'); ?>
+		</div>
+
+	<?php echo form_close(); ?>
+
+
         <table border="0" cellpadding="0" cellspacing="2">
             <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
 				<?php echo anchor('active_ctrl/wyszukaj',"<strong>|<u> Wyszukaj</u></strong>"); ?>	
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	
 			
-			<?php echo form_open('active_ctrl/search'); ?>
-				<div>
-					<?php echo form_label('Tytul:', 'tytul'); ?>
-					<?php echo form_input('tytul', set_value('tytul'), 'id="tytul"'); ?>
-				</div>
-
-				<div>
-					<?php echo form_label('Kategoria:', 'kategoria'); ?>
-					<?php echo form_dropdown('kategoria', $category_options, 
-						set_value('kategoria'), 'id="kategoria"'); ?>
-				</div>
-
-				<div>
-					<?php echo form_label('Rok wydania:', 'rok_wydania'); ?>
-					<?php echo form_dropdown('rok_wydania_comparison', 
-						array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<') , 
-						set_value('rok_wydania_comparison'), 'id="rok_wydania_comparison"'); ?>
-					<?php echo form_input('rok_wydania', set_value('rok_wydania'), 'id="rok_wydania"'); ?>
-				</div>
-
-				<div>
-					<?php echo form_submit('action', 'Search'); ?>
-				</div>
-
-			<?php echo form_close(); ?>
+		
 
 			<div>
 				Znaleziono <?php echo $num_results; ?> książek.
@@ -107,12 +110,7 @@
 
 			</table>
 
-			<?php if (strlen($pagination)): ?>
-			<div>
-				Pages: <?php echo $pagination; ?>
-			</div>
-			<?php endif; ?>
-
+		<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
 		
 			</div>
 				

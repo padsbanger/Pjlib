@@ -31,24 +31,23 @@
 		<div id="content">
         <h1><?php echo anchor('active_ctrl/archives',"Archiwum") ?> </h1>
        
-		<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
 
         <table border="0" cellpadding="0" cellspacing="2">
-            <tr><td colspan="8" class="noneborder">	<tr><td colspan="8" class="noneborder">
+        <tr><td colspan="8" class="noneborder">
 <?php echo anchor('active_ctrl/',"<strong>Strona główna</strong> |");?>
 
 <?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	</tr>
             <tr>
-                <td class="heading"><strong>NO</strong></td>
-                <td class="heading"><strong>Tytuł książki</strong></td>
-                <td class="heading"><strong>Imie autora</strong></td>
-				<td class="heading"><strong>Nazwisko autora</strong></td>
-                <td class="heading"><strong>Wydawnictwo</strong></td>
-				<td class="heading"><strong>Rok wydania</strong></td>
-				<td class="heading"><strong>Kategoria</strong></td>
-                <td class="heading"><strong>Data usunięcia</strong></td>
+                <td id="heading"><strong>ID</strong></td>
+                <td id="heading"><strong>Tytuł książki</strong></td>
+                <td id="heading"><strong>Imie autora</strong></td>
+				<td id="heading"><strong>Nazwisko autora</strong></td>
+                <td id="heading"><strong>Wydawnictwo</strong></td>
+				<td id="heading"><strong>Rok wydania</strong></td>
+				<td id="heading"><strong>Kategoria</strong></td>
+                <td id="heading"><strong>Data usunięcia</strong></td>
             </tr>
             <?php 
             $i=1;
@@ -67,7 +66,8 @@
             </tr>
             <?php $i++; } ?>
         </table>
-
+		
+			<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
 
 			</div>
 				

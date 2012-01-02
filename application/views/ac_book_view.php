@@ -35,21 +35,15 @@
    echo "<div id ='msg'><img src=";echo base_url()."inc/img/msg.png width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''id='koniec'> [ X ]</a></p></div>";} else {
 	echo ''; 
 }?></p>
-<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
+
  
         <table border="0" cellpadding="0" cellspacing="2">
             <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
 				<?php echo anchor('active_ctrl/display',"<strong>| Wyszukaj</strong>"); ?>	
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	
-			
-			<div id="search">
-			<input type="submit" name="submit" value="Wyszukaj" />
-            <input type="text" name="kategoria" value="<?php echo set_value('kategoria') ?>" size="2" />
-			
-			</div>
-			</tr>
-          
+					
+			</tr>        
 		
 			<?php foreach($fields as $field_name => $field_display): ?>
 	
@@ -80,9 +74,11 @@
                
                 
             </tr>
+
+			
           
         </table>
-
+		<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
 		
 			</div>
 				

@@ -41,6 +41,7 @@ padding-bottom: 10px;
 }
 
 #content {
+margin:0 auto;
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
@@ -50,6 +51,7 @@ background: white;
 padding: 20px;
 position: relative;
 margin-top: 30px;
+
 -webkit-box-shadow: 4px 4px 17px rgba(50, 50, 50, 0.75);
 -moz-box-shadow: 2px 2px 17px rgba(50, 50, 50, 0.75);
 box-shadow: 1px 1px 10px rgba(50, 50, 50, 0.75);
@@ -76,8 +78,10 @@ display: none;
 }
 
 
+
 #pagination {
-margin: 7 7 7 0;
+padding:7 0 7 0;
+margin: 7 7 0 0;
 }
 
 #pagination a, #pagination strong {
@@ -204,10 +208,10 @@ border: 1px #ccc solid;
 padding: 5px;
 font-size: 12px;
 }
-    .noneborder {
+.noneborder {
 margin: 5px;
-padding-bottom: 0px;
-padding-top: 10px;
+padding: 10 0 10 5;
+	
 }
     
 #heading {
