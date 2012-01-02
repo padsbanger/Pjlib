@@ -70,13 +70,13 @@
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	
 			
-		
+			</tr>
 
 			<div>
 				Znaleziono <?php echo $num_results; ?> książek.
 			</div>
 
-			<table>
+			
 				
 
 
@@ -113,12 +113,14 @@
 		<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
 		
 			</div>
-				
-				<div id="footer">
-						<p>&copy; 2011  <a href="http://gdansk.pjwstk.edu.pl">PJWSTK Gdańsk</a></p>
-				</div>			
+			</div>
+			</div>
+					
 			
 		</div>
+			<div id="footer">
+					<p>&copy; 2011  <a href="http://gdansk.pjwstk.edu.pl">PJWSTK Gdańsk</a></p>
+			</div>
 		</div>
 		<script>
 		$(function () {
