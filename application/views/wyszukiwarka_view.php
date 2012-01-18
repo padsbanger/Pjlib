@@ -66,7 +66,7 @@
 
         <table border="0" cellpadding="0" cellspacing="2">
             <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
-				<?php echo anchor('active_ctrl/wyszukaj',"<strong>|<u> Wyszukaj</u></strong>"); ?>	
+				<?php echo anchor('active_ctrl/display',"<strong>|<u> Wyszukaj</u></strong>"); ?>	
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	
 			
@@ -76,15 +76,12 @@
 				Znaleziono <?php echo $num_results; ?> książek.
 			</div>
 
-			
-				
-
 
 					<?php foreach($fields as $field_name => $field_display): ?>
 
 
 					<td id="heading" <?php if ($sort_by == $field_name) echo "class=\"sort_$sort_order\"" ?>>
-						<?php echo anchor("active_ctrl/index/$field_name/" .
+						<?php echo anchor("active_ctrl/display/$query_id/$field_name/" .
 							(($sort_order == 'asc' && $sort_by == $field_name) ? 'desc' : 'asc') ,
 							$field_display); ?>
 					</td>
