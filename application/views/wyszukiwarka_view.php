@@ -13,7 +13,7 @@
 	<div id="fadein">
 	<script>
 	$(document).ready(function(){	
-		$('#msg').delay(500).fadeIn(800);
+		$('#msg').delay(500).fadeIn(800).fadeOut(3500);
 	});
 	</script>
 	
@@ -29,7 +29,7 @@
 	<div class="wrap">
 	   
 		<div id="content">
-        <h1><?php echo anchor('active_ctrl',"STRONA GŁÓWNA") ?> </h1>
+        <h1><?php echo anchor('active_ctrl/display',"Wyszukiwarka") ?> </h1>
         <p><?php  if($this->session->flashdata('pesan')) {
 	
    echo "<div id ='msg'><img src=";echo base_url()."inc/img/msg.png width='40px' height='40px' alt='msg'/><p>". $this->session->flashdata('pesan')." <a href=''id='koniec'> [ X ]</a></p></div>";} else {
@@ -52,7 +52,7 @@
 		<div>
 			<?php echo form_label('Rok wydania:', 'rok_wydania'); ?>
 			<?php echo form_dropdown('rok_wydania_comparison', 
-				array('gt' => '>', 'gte' => '>=', 'eq' => '=', 'lte' => '<=', 'lt' => '<') , 
+				array('gt' => '>', 'gte' => '>=', 'eq' => '==', 'lte' => '<=', 'lt' => '<') , 
 				set_value('rok_wydania_comparison'), 'id="rok_wydania_comparison"'); ?>
 			<?php echo form_input('rok_wydania', set_value('rok_wydania'), 'id="rok_wydania"'); ?>
 		</div>
@@ -65,8 +65,10 @@
 
 
         <table border="0" cellpadding="0" cellspacing="2">
-            <tr><td colspan="8" class="noneborder"><?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
-				<?php echo anchor('active_ctrl/display',"<strong>|<u> Wyszukaj</u></strong>"); ?>	
+            <tr><td colspan="8" class="noneborder">
+            <?php echo anchor('active_ctrl',"<strong>Strona główna</strong> |"); ?>
+            <?php echo anchor('active_ctrl/add',"<strong>Dodaj książkę</strong>"); ?> <?php echo anchor('active_ctrl/archives',"<strong>| Archiwum</strong>"); ?>
+				<?php echo anchor('active_ctrl/display',"<strong>| Wyszukaj</strong>"); ?>	
 				<?php echo anchor('active_ctrl/change_pass',"<strong>| Zmień hasło</strong>"); ?>
 			<?php echo anchor('login/logout',"<strong>| Wyloguj</strong>"); ?>	
 			

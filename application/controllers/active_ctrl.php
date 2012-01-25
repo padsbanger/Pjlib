@@ -44,6 +44,13 @@ class Active_ctrl extends CI_Controller {
 				$config['total_rows'] = $data['num_results'];
 				$config['per_page'] = $limit;
 				$config['uri_segment'] = 5;
+				$config['num_links']=5;
+				$config['first_link'] = 'Pierwsza';
+        $config['last_link'] = 'Ostatnia';
+        $config['next_link'] = '&rArr;';
+        $config['prev_link'] = '&lArr;';
+        
+        
 				$this->pagination->initialize($config);
 				$data['pagination'] = $this->pagination->create_links();
 
@@ -93,6 +100,11 @@ class Active_ctrl extends CI_Controller {
 		$config['total_rows'] = $data['num_results'];
 		$config['per_page'] = $limit;
 		$config['uri_segment'] = 6;
+		$config['num_links']=5;
+		$config['first_link'] = 'Pierwsza';
+    $config['last_link'] = 'Ostatnia';
+    $config['next_link'] = '&rArr;';
+    $config['prev_link'] = '&lArr;';
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
 		
@@ -128,10 +140,14 @@ class Active_ctrl extends CI_Controller {
 	
 	function archives() {
 		
-	    $config['base_url'] = 'http://localhost:8888/pjlib/index.php/active_ctrl/archives';
+	  $config['base_url'] = 'http://localhost:8888/pjlib/index.php/active_ctrl/archives';
 		$config['total_rows'] = $this->Book_model->countArchive();
 		$config['per_page']=10;
-		$config['num_links']=15;
+	  $config['num_links']=5;
+  	$config['first_link'] = 'Pierwsza';
+    $config['last_link'] = 'Ostatnia';
+    $config['next_link'] = '&rArr;';
+    $config['prev_link'] = '&lArr;';
 		
 		$this->pagination->initialize($config);
 		

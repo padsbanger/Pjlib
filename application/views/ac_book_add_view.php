@@ -3,9 +3,12 @@
 		<title>Dodawanie książki</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 		 <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>inc/css/style.css" />
+		 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     </head>
 
     <body>
+      
+     
 			<div id="header">
 
 					<div class="wrap2">
@@ -57,7 +60,19 @@
 		</div>
 				</div>
 			</div>
+		<script>
 		
+		$(document).ready(function(){	
+  		$(".error").animate({
+          left: '+=10',
+          height: 'toggle'
+        }, 1500, function() {
+         
+        });
+      });
+    
+		
+		</script>
     </body>
 </html>
 

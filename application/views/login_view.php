@@ -15,7 +15,9 @@
 		$('#msg').delay(500).fadeIn(800);
 	});
 	
-	
+	$(document).ready(function(){	
+		$('.error').delay(500).fadeIn(800);
+	});
 	
 	
 	</script>
@@ -69,6 +71,9 @@
 		div.style.display='block';
 	}
 	});
+	
+	
+  
 	</script>
 </body>
 </html>

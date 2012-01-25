@@ -13,8 +13,10 @@
 	<div id="fadein">
 	<script>
 	$(document).ready(function(){	
-		$('#msg').delay(500).fadeIn(800);
+		$('#msg').delay(500).fadeIn(800).fadeOut(7000);
 	});
+	
+	
 	</script>
 	
 	
@@ -70,13 +72,10 @@
 			                    <?php echo anchor('active_ctrl/delete/'.$film->id,"Usuń"); ?>
 			                </td>
 					</tr>
-					<?php endforeach; ?>
-               
+					<?php endforeach; ?>          
                 
             </tr>
-
-			
-          
+       
         </table>
 		<?php echo "<div id='pagination'>".$this->pagination->create_links()."</div>"?>
 		
